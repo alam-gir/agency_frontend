@@ -15,7 +15,7 @@ const HomeHero: FC<HomeHeroProps> = ({}) => {
       </div>
 
       {/* hero content */}
-      <div className="h-auto w-full md:max-w-4xl lg:max-w-7xl m-auto px-4 flex flex-col lg:flex-row justify-between items-center">
+      <div className="h-auto w-full md:max-w-4xl lg:max-w-7xl m-auto px-4 flex flex-col-reverse lg:flex-row justify-between items-center">
         <div className="h-screen md:h-[93vh] flex flex-col justify-center gap-y-6">
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl md:text-5xl lg:text-6xl w-full font-bold text-primary/80 leading-tight md:leading-snug lg:leading-tight">
@@ -37,7 +37,7 @@ const HomeHero: FC<HomeHeroProps> = ({}) => {
             </Button>
           </div>
         </div>
-        <div className=" h-full w-full lg:w-1/2 flex items-center justify-center">
+        <div className=" h-screen w-full lg:w-1/2 flex items-center justify-center">
           <Image
             src={draw}
             alt="Picture of the author"
