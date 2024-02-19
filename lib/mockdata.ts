@@ -1,8 +1,16 @@
+import brochure from "@/public/icons/brochure icon.png";
+import palatteBro from "@/public/icons/Palette-bro.svg";
+import penTool from "@/public/icons/Pen tool-amico.svg";
+import model from "@/public/icons/3d modeling-bro.svg";
+import animateAmico from "@/public/icons/Animation-amico.svg";
+import palettePana from "@/public/icons/Palette-pana.svg";
+import brandCommunication from "@/public/icons/brand communication-bro.svg";
+
 export let mockCategories = [
   {
     _id: "alsdkjfasdfasdffl;asjd1f",
-    title: "Category 1",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    title: "Logo Design",
+    icon: palatteBro,
     author: {
       _id: "alsdkjfaslkjdfl;asjdf1",
       name: "sefeed Doe",
@@ -13,8 +21,8 @@ export let mockCategories = [
   },
   {
     _id: "agfhervfrdl;asjd2f",
-    title: "Category 2",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    title: "Graphic Design",
+    icon: penTool,
     author: {
       _id: "alsdkjfaslkjdfl;asjdf2",
       name: "yhhbff Doe",
@@ -25,8 +33,8 @@ export let mockCategories = [
   },
   {
     _id: "alsdkdfsdfdfgf3asjdf3",
-    title: "Category 3",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    title: "Color grading",
+    icon: palettePana,
     author: {
       _id: "alsdkjfaslkjdfl;asjdf",
       name: "drte Doe",
@@ -37,8 +45,8 @@ export let mockCategories = [
   },
   {
     _id: "alsdkjsdftewfsd4f;asjd4f",
-    title: "Category 4",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    title: "Animation",
+    icon: animateAmico,
     author: {
       _id: "alsdkjfaslkjdfl;a5sjdf",
       name: "ggd Doe",
@@ -49,8 +57,8 @@ export let mockCategories = [
   },
   {
     _id: "alsddfgsdffl;as5jdf",
-    title: "Category 5",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    title: "Model Desing",
+    icon: model,
     author: {
       _id: "alsdkjfaslkjdfl;asjdf",
       name: "John Doe",
@@ -61,8 +69,8 @@ export let mockCategories = [
   },
   {
     _id: "alsdkjfaslkjdfl;6asjdf",
-    title: "Category 6",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    title: "Branding Design",
+    icon: brandCommunication,
     author: {
       _id: "alsdkjfaslkjdfl;asjdf",
       name: "John Doe",
@@ -72,141 +80,9 @@ export let mockCategories = [
     },
   },
   {
-    _id: "alsdkjfaslkjdfl7;asjdf",
-    title: "Category 7",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjfaslkjdf8l;asjdf",
-    title: "Category 8",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjfa9slkjdfl;asjdf",
-    title: "Category 9",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "als7dkjf9aslkjdfl;asjdf",
-    title: "Category 10",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsd8kjfaslkjdfl;asjdf",
-    title: "Category 11",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkj5faslkjdfl;asjdf",
-    title: "Category 12",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjf6aslkjdfl;asjdf",
-    title: "Category 13",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkj4faslkjdfl;asjdf",
-    title: "Category 14",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkj3faslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjfasl2kjdfl;asjdf",
-    title: "Category 15",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjfa1slkjdfl;asjdf",
-    title: "Category 16",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjfas33lkjdfl;asjdf",
-    title: "Category 17",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-    author: {
-      _id: "alsdkjfaslkjdfl;asjdf",
-      name: "John Doe",
-      email: "johndoe@gamil.com",
-      phone: "01847362735",
-      role: "admin",
-    },
-  },
-  {
-    _id: "alsdkjfaslkjd23fl;asjdf",
-    title: "Category 18",
-    icon: "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+    _id: "alsdkjfaslkjdfl;6asjdf",
+    title: "Brochure Design",
+    icon: brochure,
     author: {
       _id: "alsdkjfaslkjdfl;asjdf",
       name: "John Doe",

@@ -5,6 +5,7 @@ import { StoreProvider } from "../redux/provider";
 import { ThemeProvider } from "@/components/themeProvider";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "@/components/ui/toaster";
+import NextUIProvider from "@/components/nextui-provider"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,19 +25,22 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <ThemeProvider
-          defaultTheme="system"
-          enableSystem
-          attribute="class"
-          disableTransitionOnChange
-        >
-          <StoreProvider>
-            <SessionProvider>
-              {children}
-              <Toaster />
-            </SessionProvider>
-          </StoreProvider>
-        </ThemeProvider>
+        <NextUIProvider>
+          <ThemeProvider
+            defaultTheme="system"
+            enableSystem
+            attribute="class"
+            disableTransitionOnChange
+            >
+            <StoreProvider>
+              <SessionProvider>
+
+                {children}
+                <Toaster />
+              </SessionProvider>
+            </StoreProvider>
+          </ThemeProvider>
+        </NextUIProvider>
       </body>
     </html>
   );
