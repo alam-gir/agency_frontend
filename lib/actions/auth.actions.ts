@@ -1,5 +1,5 @@
 
-import { signIn, signOut } from "@/auth";
+import { signOut } from "@/auth";
 
 export const register = async ({
   name,
@@ -83,9 +83,23 @@ export const login = async ({
   }
 };
 
+export const socialLogin = async ({provider}:{provider: "google" | "facebook" | "github"}) => {
+  try {
+    const response = await fetch(
+      `http://localhost:4000/api/v1/auth/login/${provider}`
+    );
+    const data = await response.json();
+    window.location.href = data.redirectUrl;
+  } catch (error) {
+    console.log({ error });
+  }
+}
+
 export const logout = async () => {
   await signOut({ redirect: false });
 };
+
+
 
 // verifyEmail
 
