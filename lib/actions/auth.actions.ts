@@ -86,7 +86,7 @@ export const login = async ({
 export const socialLogin = async ({provider}:{provider: "google" | "facebook" | "github"}) => {
   try {
     const response = await fetch(
-      `http://localhost:4000/api/v1/auth/login/${provider}`
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/login/${provider}`
     );
     const data = await response.json();
     window.location.href = data.redirectUrl;
