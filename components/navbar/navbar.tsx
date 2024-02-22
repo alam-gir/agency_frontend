@@ -7,30 +7,25 @@ import AuthButton from "./authButton";
 import Image from "next/image";
 import light_logo from "@/public/light logo.png";
 import dark_logo from "@/public/dark logo.png";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {}
-
-const NavList = navigationMenu.map((menu) => {
-  return (
-    <li key={menu.path} className="ml-4 first:ml-0">
-      <Link
-        href={menu.path}
-        className="text-lg text-secondary-foreground hover:text-secondary-foreground/90 hover:bg-seconday"
-      >
-        {menu.name}
-      </Link>
-    </li>
-  );
-});
-
 const Navbar: FC<NavbarProps> = ({}) => {
-  const [scrolled, setScrolled] = useState<number>(0);
+  const pathName = usePathname();
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScrolled(window.scrollY);
-    });
-  }, []);
+  const NavList = navigationMenu.map((menu) => {
+    const isActive = pathName === menu.path;
+    return (
+      <li key={menu.path} className='ml-4 first:ml-0'>
+        <Link
+          href={menu.path}
+          className={`text-lg ${isActive ? "text-purple-500 font-medium" : "text-primary/80 hover:text-primary duration-300"}`}
+        >
+          {menu.name}
+        </Link>
+      </li>
+    );
+  });
 
   return (
     <nav

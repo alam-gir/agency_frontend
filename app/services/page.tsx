@@ -7,7 +7,7 @@ const page: FC<pageProps> = ({}) => {
   return (
     <div>
       <Navbar />
-      <div>page</div>
+      <div>services page</div>
     </div>
   );
 };
