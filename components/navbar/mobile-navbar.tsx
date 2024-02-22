@@ -40,8 +40,8 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
       >
         <div
           onClick={handleOpen}
-          className={`flex flex-col gap-1 cursor-pointer group ${
-            isOpen ? " rotate-180" : ""
+          className={`flex flex-col gap-1 cursor-pointer group duration-500 ${
+            isOpen ? " -rotate-180" : "rotate-0"
           }`}
         >
           <div
@@ -68,8 +68,8 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
       <div
         onClick={handleOpen}
         className={` ${
-          isOpen ? "top-full -translate-y-full" : "-top-full"
-        } md:hidden duration-300 h-screen w-full fixed backdrop-blur-xl z-40 `}
+          isOpen ? "top-0 left-0" : "-top-[200%] -left-[200%]"
+        } md:hidden duration-500 h-screen w-full fixed backdrop-blur-xl z-40 `}
       >
         <div className="h-[80%] w-full">
           <ul className=" h-full w-full flex flex-col items-center justify-center gap-4">
