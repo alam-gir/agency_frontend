@@ -2,7 +2,7 @@
 import { FC } from "react";
 import TooltipButton from "./tooltipButton";
 import Link from "next/link";
-import { LayoutDashboardIcon, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 import { usePathname } from "next/navigation";
 

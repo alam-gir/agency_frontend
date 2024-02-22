@@ -3,13 +3,15 @@
 import { navigationMenu } from "@/lib/context";
 import Link from "next/link";
 import { FC, useCallback, useEffect, useState } from "react";
+import AuthButton from "./authButton";
+import { ModeToggle } from "../modeToggle";
 
 const NavList = navigationMenu.map((menu) => {
   return (
-    <li key={menu.path} className="ml-4 first:ml-0">
+    <li key={menu.path}>
       <Link
         href={menu.path}
-        className="text-lg text-secondary-foreground hover:text-secondary-foreground/90 hover:bg-seconday"
+        className="text-2xl font-medium text-secondary-foreground/80 hover:text-secondary-foreground/90 hover:bg-seconday"
       >
         {menu.name}
       </Link>
@@ -32,22 +34,48 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
   return (
     <>
       <div
-        onClick={handleOpen}
-        className={`md:hidden fixed top-4 cursor-pointer group ${isOpen ? "z-10 right-10" : "left-10"}`}
+        className={`md:hidden fixed z-50 w-full flex items-center justify-between px-10 py-2 ${
+          !isOpen ? "backdrop-blur-xl" : ""
+        }`}
       >
-        <div className={`flex flex-col gap-1 ${isOpen ? " rotate-180" : ""}`}>
-          <div className={`w-7 h-1 rounded-lg bg-primary/60 group-hover:w-6 duration-300 ${isOpen ? "" : ""}`}></div>
-          <div className={`w-7 h-0.5 rounded-lg bg-primary/60 group-hover:w-8 duration-300 ${isOpen ? "" : ""}`}></div>
-          <div className={`w-7 h-1 rounded-lg bg-primary/60 group-hover:w-6 duration-300 ${isOpen ? "" : ""}`}></div>
+        <div
+          onClick={handleOpen}
+          className={`flex flex-col gap-1 cursor-pointer group ${
+            isOpen ? " rotate-180" : ""
+          }`}
+        >
+          <div
+            className={`w-7 h-1 rounded-lg bg-primary/80 group-hover:w-6 duration-300 ${
+              isOpen ? "" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-7 h-0.5 rounded-lg bg-primary/80 group-hover:w-8 duration-300 ${
+              isOpen ? "" : ""
+            }`}
+          ></div>
+          <div
+            className={`w-7 h-1 rounded-lg bg-primary/80 group-hover:w-6 duration-300 ${
+              isOpen ? "" : ""
+            }`}
+          ></div>
+        </div>
+        <div className="flex gap-2">
+          <AuthButton />
+          <ModeToggle />
         </div>
       </div>
       <div
-      onClick={handleOpen}
+        onClick={handleOpen}
         className={` ${
           isOpen ? "top-full -translate-y-full" : "-top-full"
-        } md:hidden duration-300 h-screen w-full fixed backdrop-blur-xl`}
+        } md:hidden duration-300 h-screen w-full fixed backdrop-blur-xl z-40 `}
       >
-        <ul>{NavList}</ul>
+        <div className="h-[80%] w-full">
+          <ul className=" h-full w-full flex flex-col items-center justify-center gap-4">
+            {NavList}
+          </ul>
+        </div>
       </div>
     </>
   );
