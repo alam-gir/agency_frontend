@@ -5,24 +5,27 @@ import Link from "next/link";
 import { FC, useCallback, useEffect, useState } from "react";
 import AuthButton from "./authButton";
 import { ModeToggle } from "../modeToggle";
-
-const NavList = navigationMenu.map((menu) => {
-  return (
-    <li key={menu.path}>
-      <Link
-        href={menu.path}
-        className="text-2xl font-medium text-secondary-foreground/80 hover:text-secondary-foreground/90 hover:bg-seconday"
-      >
-        {menu.name}
-      </Link>
-    </li>
-  );
-});
+import { usePathname } from "next/navigation";
 
 interface MobileNavbarProps {}
 
 const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
+  const pathName = usePathname();
   const [isOpen, setOpen] = useState<boolean>(false);
+
+  const NavList = navigationMenu.map((menu) => {
+    const isActive = pathName === menu.path;
+    return (
+      <li key={menu.path}>
+        <Link
+          href={menu.path}
+          className={`text-2xl ${isActive ? "text-purple-500 font-medium" : "text-primary/80 hover:text-primary duration-300"}`}
+        >
+          {menu.name}
+        </Link>
+      </li>
+    );
+  });
 
   const handleOpen = () => {
     setOpen(!isOpen);
@@ -34,7 +37,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
   return (
     <>
       <div
-        className={`md:hidden fixed z-50 w-full flex items-center justify-between px-10 py-2 ${
+        className={`md:hidden sticky top-0 z-50 w-full flex items-center justify-between px-4 py-2 ${
           !isOpen ? "backdrop-blur-xl" : ""
         }`}
       >

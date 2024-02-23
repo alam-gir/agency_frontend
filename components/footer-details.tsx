@@ -13,7 +13,7 @@ const FooterDetails: FC<FooterDetailsProps> = ({}) => {
         background:
           "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
       }}
-      className=" py-8 rounded-t-md"
+      className=" p-8 rounded-t-md"
     >
       <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-x-6 max-w-6xl m-auto">
         <div className="flex flex-col gap-4 lg:w-1/2">

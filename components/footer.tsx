@@ -2,12 +2,14 @@ import { FC } from "react";
 import SubscriptionEmailBox from "./subcription-email-box";
 import FooterDetails from "./footer-details";
 
-interface footerProps {}
+interface footerProps {
+  isSubcriptionBox?: boolean;
+}
 
-const Footer: FC<footerProps> = ({}) => {
+const Footer: FC<footerProps> = ({isSubcriptionBox = true}) => {
   return (
     <div>
-      <SubscriptionEmailBox />
+      {isSubcriptionBox ? <SubscriptionEmailBox /> : null}
       <FooterDetails />
     </div>
   );
