@@ -14,7 +14,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ title, icon, hRef }) => {
       <Card
       isFooterBlurred
       radius="lg"
-      className="group dark:border dark:border-primary/15 relative w-56 h-56 shadow-lg hover:bg-purple-100 hover:rounded-3xl dark:hover:bg-primary-foreground hover:shadow-lg hover:shadow-purple-100 dark:hover:shadow-primary-foreground/10 hover:scale-105 hover:rotate-6 cursor-pointer duration-300 flex items-center justify-center"
+      className="group dark:border dark:border-primary/15 relative w-56 h-56 shadow-lg bg-card hover:bg-accent/50 hover:rounded-3xl dark:hover:bg-primary-foreground hover:shadow-lg hover:shadow-accent/50 dark:hover:shadow-primary-foreground/10 hover:scale-105 hover:rotate-6 cursor-pointer duration-300 flex items-center justify-center"
       >
         <Link href={hRef}>
       <Image

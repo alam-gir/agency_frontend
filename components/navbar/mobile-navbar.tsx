@@ -2,10 +2,15 @@
 
 import { navigationMenu } from "@/lib/context";
 import Link from "next/link";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import AuthButton from "./authButton";
 import { ModeToggle } from "../modeToggle";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+
+import dark_logo from "@/public/dark logo.png";
+import light_logo from "@/public/light logo.png";
+import Logo from "../global/logo";
 
 interface MobileNavbarProps {}
 
@@ -19,7 +24,11 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
       <li key={menu.path}>
         <Link
           href={menu.path}
-          className={`text-2xl ${isActive ? "text-purple-500 font-medium" : "text-primary/80 hover:text-primary duration-300"}`}
+          className={`text-2xl ${
+            isActive
+              ? "text-accent font-medium"
+              : "text-primary/80 hover:text-primary duration-300"
+          }`}
         >
           {menu.name}
         </Link>
@@ -41,27 +50,30 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
           !isOpen ? "backdrop-blur-xl" : ""
         }`}
       >
-        <div
-          onClick={handleOpen}
-          className={`flex flex-col gap-1 cursor-pointer group duration-500 ${
-            isOpen ? " -rotate-180" : "rotate-0"
-          }`}
-        >
+        <div className="flex items-center gap-2">
           <div
-            className={`w-7 h-1 rounded-lg bg-primary/80 group-hover:w-6 duration-300 ${
-              isOpen ? "" : ""
+            onClick={handleOpen}
+            className={`flex flex-col gap-1 cursor-pointer group duration-500 ${
+              isOpen ? " -rotate-180" : "rotate-0"
             }`}
-          ></div>
-          <div
-            className={`w-7 h-0.5 rounded-lg bg-primary/80 group-hover:w-8 duration-300 ${
-              isOpen ? "" : ""
-            }`}
-          ></div>
-          <div
-            className={`w-7 h-1 rounded-lg bg-primary/80 group-hover:w-6 duration-300 ${
-              isOpen ? "" : ""
-            }`}
-          ></div>
+          >
+            <div
+              className={`w-7 h-1 rounded-lg bg-primary/80 group-hover:w-6 duration-300 ${
+                isOpen ? "" : ""
+              }`}
+            ></div>
+            <div
+              className={`w-7 h-0.5 rounded-lg bg-primary/80 group-hover:w-8 duration-300 ${
+                isOpen ? "" : ""
+              }`}
+            ></div>
+            <div
+              className={`w-7 h-1 rounded-lg bg-primary/80 group-hover:w-6 duration-300 ${
+                isOpen ? "" : ""
+              }`}
+            ></div>
+          </div>
+          <Logo />
         </div>
         <div className="flex gap-2">
           <AuthButton />
