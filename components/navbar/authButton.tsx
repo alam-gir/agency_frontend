@@ -39,7 +39,7 @@ const AuthButton: FC<AuthButtonProps> = ({}) => {
     authPageSetCallback();
   });
 
-  if (isLoading) return <FaSpinner className=" animate-spin text-primary/15" />;
+  if (isLoading) return <div className="flex items-center"><FaSpinner className=" animate-spin text-primary/15" /></div>;
   return (
     !isAuthPage ? <div className="w-full gap-x-2 flex items-center justify-end">
       {isLogged && user?.role === "admin" ? <DashboardButton /> : null}

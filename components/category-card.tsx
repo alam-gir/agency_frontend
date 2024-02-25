@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Card, CardFooter, Button } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 

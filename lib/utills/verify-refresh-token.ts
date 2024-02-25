@@ -3,6 +3,8 @@ export const verifyRefreshToken = async ({
 }: {
   refresh_token: string;
 }) => {
+  console.log({ refresh_token });
+  if (!refresh_token) return false;
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/auth/verify-refresh-token`,
     {
@@ -10,7 +12,7 @@ export const verifyRefreshToken = async ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify( {refresh_token} ),
+      body: JSON.stringify({ refresh_token }),
     }
   );
 

@@ -45,8 +45,6 @@ const CategoryForm: FC<CategoryFormProps> = ({
   onSubmit,
   mode,
   disabled,
-  error,
-  success,
 }) => {
   //loading states
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -55,6 +53,8 @@ const CategoryForm: FC<CategoryFormProps> = ({
   const iconRef = useRef<HTMLInputElement | null>(null);
 
   const [newIcon, setNewIcon] = useState<File | undefined>();
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
 
   const form = useForm<z.infer<typeof CategorySchema>>({
     resolver: zodResolver(CategorySchema),
@@ -84,29 +84,28 @@ const CategoryForm: FC<CategoryFormProps> = ({
       }
 
       // submit
-      const res = await onSubmit(values).then(res => console.log({res}));
-      // return success State
-      // if (res?.success) {
-      //   setSuccess(res.success);
-      // }
-      // if (res?.error) {
-      //   setError(res?.error);
-      // }
+      const res = (await onSubmit(values)) as
+        | { success: string; error?: undefined }
+        | { error: any; success?: undefined };
+      if (res.error) {
+        setError(res.error);
+      }
+      if (res.success) {
+        setSuccess(res.success);
+      }
 
       // stop loadin
       setLoading(false);
     } catch (error) {
       // stop laodin
       setLoading(false);
-
-      // return error state
-      // setError((error as any).message);
     }
   };
 
   const iconFieldClickHandle = () => {
     iconRef?.current?.click();
   };
+
   const iconChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {

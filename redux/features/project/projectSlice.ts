@@ -17,13 +17,21 @@ export const projectSlice = apiSlice.injectEndpoints({
       invalidatesTags: ["Project"],
     }),
 
-    getProjects: build.query<ApiResponseArray<Project>, void>({
-      query: () => ({
-        url: "/project",
+    getProjects: build.query<
+      ApiResponseArray<Project>,
+      { filter?: { category?: string | null, search?: string | null } }
+    >({
+      query: ({ filter }) => ({
+        url:
+          "/project" + (filter?.category ? `?category=${filter?.category}` : "") + (filter?.search ? `&search=${filter?.search}` : ""),
       }),
       providesTags: (result, err) => {
+        console.log({ result });
         return result
-          ? result.data.map(({ _id }) => ({ type: "Project", id: _id }))
+          ? (result.data as any)?.projects?.map(({ _id }: { _id: string }) => ({
+              type: "Project",
+              id: _id,
+            }))
           : ["Project"];
       },
     }),

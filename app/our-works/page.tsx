@@ -7,11 +7,10 @@ interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
   return (
-    <div className="h-auto w-full relative">
+    <div className="h-full w-full relative">
         <Navbar />
         <MobileNavbar />
-      <div className="h-full">
-        {/* <EmailVerificationModal /> */}
+      <div className="h-full w-full relative">
         <OurWorksPage />
       </div>
     </div>

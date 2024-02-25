@@ -14,7 +14,7 @@ const DashboardButton: FC<DashboardButtonProps> = ({}) => {
         router.push('/dashboard')
     }
 
-  return <Button variant={"destructive"} className='bg-accent' onClick={clickhandle}>Dashboard</Button>
+  return <Button variant={"outline"} className='bg-accent-purple text-gray-200' onClick={clickhandle}>Dashboard</Button>
 }
 
 export default DashboardButton

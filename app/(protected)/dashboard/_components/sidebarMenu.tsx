@@ -32,8 +32,8 @@ const SidebarMenu: FC<SidebarMenuProps> = ({
       <TooltipButton tipText={tooltipText}>
         <button {...props} className={`${className} ${isActive ? "lg:bg-secondary-foreground/10 lg:pl-4" : ""} lg:w-full h-10 rounded-sm flex items-center lg:justify-start hover:opacity-65 cursor-pointer`}>
           <Link href={href} className={`w-full h-12 flex items-center text-primary duration-3000`}>
-            <Icon className={` ${isActive ? "text-accent" : ""} h-6 w-6 lg:mr-3 duratio-300`} />
-            <h3 className={`${isActive ? "text-accent" : ""} hidden lg:block font-medium text-sm duration-300`}>{title}</h3>
+            <Icon className={` ${isActive ? "text-accent-purple" : ""} h-6 w-6 lg:mr-3 duratio-300`} />
+            <h3 className={`${isActive ? "text-accent-purple" : ""} hidden lg:block font-medium text-sm duration-300`}>{title}</h3>
           </Link>
         </button>
       </TooltipButton>

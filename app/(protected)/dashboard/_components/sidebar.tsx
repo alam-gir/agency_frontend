@@ -23,12 +23,10 @@ import { UserAvatar } from "@/components/global/userAvatar";
 interface SidebarProps {}
 
 const Sidebar: FC<SidebarProps> = ({}) => {
-
-
   return (
     <>
       {/* for big screens */}
-      <aside className="hidden sticky left-0 top-0 md:flex md:w-20 md:h-full lg:w-60 flex-col justify-between  pt-4 bg-secondary">
+      <aside className="hidden sticky left-0 top-0 md:flex md:w-20 md:h-full lg:w-60 flex-col justify-between  pt-4 bg-secondary z-50">
         {/* navigations */}
         <div>
           {/* Mode toggle */}

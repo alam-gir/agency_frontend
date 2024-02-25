@@ -19,7 +19,7 @@ const HomeHero: FC<HomeHeroProps> = ({}) => {
         <div className="h-screen md:h-[93vh] flex flex-col justify-center gap-y-6">
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl md:text-5xl lg:text-6xl w-full font-bold text-primary/80 leading-tight md:leading-snug lg:leading-tight">
-              Grow your <span className="text-accent">Business</span> with
+              Grow your <span className="text-accent-purple">Business</span> with
               us.
             </h1>
             <p className=" max-w-xl text-muted-foreground tracking-wide">

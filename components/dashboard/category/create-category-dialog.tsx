@@ -18,8 +18,10 @@ const CreateCategory: FC<CreateCategoryProps> = ({}) => {
   const [error, setError] = useState<string | undefined>();
 
   //<----------------Redux hooks-------------------->
-  const [createCategory, { isSuccess, isError, data, error: createError, reset}] =
-    useCreateCategoryMutation();
+  const [
+    createCategory,
+    { isSuccess, isError, data, error: createError, reset },
+  ] = useCreateCategoryMutation();
 
   //<----------------callback functions-------------------->
   const openHandler = useCallback(() => {
@@ -33,12 +35,12 @@ const CreateCategory: FC<CreateCategoryProps> = ({}) => {
     if (isSuccess) {
       setSuccess((data as any).message);
       reset();
-      router.push("/dashboard/categories")
+      router.push("/dashboard/categories");
     }
     if (isError) {
       setError((createError as any).message);
     }
-  }, [isSuccess, isError, data, createError, router,reset]);
+  }, [isSuccess, isError, data, createError, router, reset]);
 
   //<----------------useEffects-------------------->
   useEffect(() => {
@@ -54,7 +56,7 @@ const CreateCategory: FC<CreateCategoryProps> = ({}) => {
     reset();
     setSuccess("");
     setError("");
-    
+
     //<----------------close modal-------------------->
     router.push("/dashboard/categories");
   };
@@ -73,10 +75,16 @@ const CreateCategory: FC<CreateCategoryProps> = ({}) => {
     // create category
 
     try {
-      await createCategory(data);
+      
+      const res = await createCategory(data) as any;
+      if(res.error){
+        return {
+          error: res.error.data.message
+        }
+      }
 
       // then upload icon
-    } catch (error: any) {
+    } catch (error : any) {
       setError(error.message);
     }
   };

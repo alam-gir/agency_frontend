@@ -20,7 +20,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
       <li key={menu.path} className='ml-4 first:ml-0'>
         <Link
           href={menu.path}
-          className={`text-lg ${isActive ? "text-accent font-medium" : "text-primary/80 hover:text-primary duration-300"}`}
+          className={`text-lg ${isActive ? "text-accent-purple font-medium" : "text-primary/80 hover:text-primary duration-300"}`}
         >
           {menu.name}
         </Link>

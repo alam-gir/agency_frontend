@@ -41,6 +41,7 @@ export interface Category extends Docs{
   title: string;
   author: string | User;
   icon: File;
+  project_count: number;
 }
 
 export interface File extends Docs {
@@ -57,6 +58,13 @@ export interface Project extends Docs {
   category: string | Category;
   files: string | File[];
   images: string | File[];
+}
+
+export interface ProjectPopulated extends Project {
+  category: Category;
+  files: File[];
+  images: File[];
+  author: User;
 }
 
 export interface ApiResponse {

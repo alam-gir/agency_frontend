@@ -11,6 +11,12 @@ const nextConfig = {
             },
             {
                 hostname: "img.freepik.com"
+            },
+            {
+                hostname: "via.placeholder.com"
+            },
+            {
+                hostname: "fakeimg.pl"
             }
         ],
     }

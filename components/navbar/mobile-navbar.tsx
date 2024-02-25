@@ -6,10 +6,6 @@ import { FC, useEffect, useState } from "react";
 import AuthButton from "./authButton";
 import { ModeToggle } from "../modeToggle";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-
-import dark_logo from "@/public/dark logo.png";
-import light_logo from "@/public/light logo.png";
 import Logo from "../global/logo";
 
 interface MobileNavbarProps {}
@@ -26,7 +22,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
           href={menu.path}
           className={`text-2xl ${
             isActive
-              ? "text-accent font-medium"
+              ? "text-accent-purple font-medium"
               : "text-primary/80 hover:text-primary duration-300"
           }`}
         >
@@ -46,7 +42,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({}) => {
   return (
     <>
       <div
-        className={`md:hidden sticky top-0 z-50 w-full flex items-center justify-between px-4 py-2 ${
+        className={`md:hidden sticky top-0 z-50 w-full h-[6vh] flex items-center justify-between px-4 py-2 ${
           !isOpen ? "backdrop-blur-xl" : ""
         }`}
       >

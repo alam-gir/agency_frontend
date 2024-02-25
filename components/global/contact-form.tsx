@@ -42,7 +42,7 @@ const ContactForm: FC<ContactFormProps> = ({ title, description }) => {
   return (
     <div className="h-auto w-full max-w-3xl lg:max-w-7xl m-auto flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl text-accent dark:text-primary/80 font-medium text-center lg:text-left">
+        <h1 className="text-2xl text-accent-purple dark:text-primary/80 font-medium text-center lg:text-left">
           {title || `We would love to help!`}
         </h1>
         <p className="text-primary/80 text-center lg:text-left">

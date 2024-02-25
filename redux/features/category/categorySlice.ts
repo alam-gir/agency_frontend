@@ -8,6 +8,17 @@ import { apiSlice } from "@/redux/apiSlice";
 
 const categorySlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    createCategory: builder.mutation<ApiResponseSingle<Category>, FormData>({
+      query: (data) => ({
+        url: "/category",
+        credentials: "include",
+        method: "POST",
+        mode: "cors",
+        body: data,
+      }),
+      invalidatesTags: [{ type: "Category", id: "LIST" }],
+    }),
+
     getCategories: builder.query<ApiResponseArray<Category>, void>({
       query: () => ({ url: "/category" }),
       providesTags: (result, err, id) => {
@@ -22,20 +33,12 @@ const categorySlice = apiSlice.injectEndpoints({
           : [{ type: "Category", id: "LIST" }];
       },
     }),
+
     getCategory: builder.query<ApiResponseSingle<Category>, string>({
       query: (id) => ({ url: "/category/" + id }),
       providesTags: (result) => [{ type: "Category", id: result?.data._id }],
     }),
-    createCategory: builder.mutation<ApiResponseSingle<Category>, FormData>({
-      query: (data) => ({
-        url: "/category",
-        credentials: "include",
-        method: "POST",
-        mode: "cors",
-        body: data,
-      }),
-      invalidatesTags: [{ type: "Category", id: "LIST" }],
-    }),
+
     updateCategory: builder.mutation<
       ApiResponseSingle<Category>,
       { id: string; data: FormData }
@@ -49,6 +52,7 @@ const categorySlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: [{ type: "Category", id: "LIST" }],
     }),
+
     deleteCategory: builder.mutation<ApiResponse, { id: string }>({
       query: ({ id }) => ({
         url: `/category/${id}`,

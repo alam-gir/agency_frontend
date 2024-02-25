@@ -7,14 +7,15 @@ DropdownMenuContent,
 DropdownMenuLabel,
 DropdownMenuItem,
 DropdownMenuSeparator,
-DropdownMenuGroup
 } from "@/components/ui/dropdown-menu"
 
 interface ProjectOptionsProps {
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  editHandle?: () => void
+  deleteHandle?: () => void
 }
 
-const ProjectOptions: FC<ProjectOptionsProps> = ({children}) => {
+const ProjectOptions: FC<ProjectOptionsProps> = ({children, editHandle, deleteHandle}) => {
   return <DropdownMenu>
     <DropdownMenuTrigger>
         {children}
@@ -22,8 +23,8 @@ const ProjectOptions: FC<ProjectOptionsProps> = ({children}) => {
     <DropdownMenuContent>
         <DropdownMenuLabel className='select-none'>Project options</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='cursor-pointer'>Edit</DropdownMenuItem>
-        <DropdownMenuItem className='cursor-pointer'><p className='text-red-400 hover:text-red-500'>Delete</p></DropdownMenuItem>
+        <DropdownMenuItem onClick={editHandle} className='cursor-pointer'>Edit</DropdownMenuItem>
+        <DropdownMenuItem onClick={deleteHandle} className='cursor-pointer'><p className='text-red-400 hover:text-red-500'>Delete</p></DropdownMenuItem>
 
     </DropdownMenuContent>
   </DropdownMenu>
