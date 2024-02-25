@@ -37,7 +37,7 @@ const HomeHero: FC<HomeHeroProps> = ({}) => {
             </Button>
           </div>
         </div>
-        <div className=" h-screen w-full lg:w-1/2 flex items-center justify-center">
+        <div className="hidden h-screen w-full lg:w-1/2 md:flex items-center justify-center">
           <Image
             src={draw}
             alt="Picture of the author"
