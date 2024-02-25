@@ -11,12 +11,12 @@ const WorksHeader: FC<WorksHeaderProps> = ({}) => {
   const category = searchParams.get("category");
   const search = searchParams.get("search");
   return (
-    <header className="flex items-center justify-between h-16 px-4 border-b border-gray-200 dark:border-gray-800 sticky top-[6vh] md:top-[7vh] backdrop-blur-xl">
-      <div className="flex flex-wrap gap-2">
+    <header className="flex items-center justify-between h-fit px-4 border-b border-gray-200 dark:border-gray-800 sticky top-[6vh] md:top-[7vh] backdrop-blur-xl">
+      <div className="flex gap-2">
         <div className="md:hidden">
           <WorksCategoryDropdown />
         </div>
-        <div className="flex flex-col">
+        <div className="hidden md:flex flex-col">
           <p>
             category: <span>{category || "all"}</span>
           </p>
