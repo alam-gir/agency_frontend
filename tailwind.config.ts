@@ -28,6 +28,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'glassy-blue': 'linear-gradient(135deg, rgba(135,206,250,0.1)  0%, rgba(255,255,255,0.1)  100%)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

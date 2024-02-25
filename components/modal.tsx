@@ -42,7 +42,7 @@ const Modal: FC<ModalProps> = ({
         onClick={(e) => {
           e.stopPropagation();
         }}
-        className=" pb-4 flex flex-col relative h-auto w-auto min-h-[100px] min-w-[500px] bg-primary-foreground rounded-md z-50"
+        className=" pb-4 flex flex-col relative h-auto w-auto min-h-[100px] min-w-[250px] bg-primary-foreground rounded-md z-50"
       >
         {/* close button */}
         <Button

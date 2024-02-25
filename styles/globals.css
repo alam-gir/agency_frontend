@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './embla.css';
+
 ::-webkit-scrollbar {
   width: 5px;
 }
