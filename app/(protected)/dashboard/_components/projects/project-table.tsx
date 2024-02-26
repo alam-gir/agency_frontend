@@ -36,8 +36,6 @@ const ProjectTable: FC<ProjectTableProps> = ({}) => {
     projectFetchStateCallback();
   });
 
-  console.log({ data });
-
   //-------------------JSX---------------------
   const projects = (data?.data as any)?.projects;
   const ProjectCards = projects

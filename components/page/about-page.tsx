@@ -1,5 +1,5 @@
 import { FC } from "react";
-import PgageBanner from "../global/page-banner";
+import PageBanner from "../global/page-banner";
 import { Bolt, Code, RedoDot } from "lucide-react";
 import logoLight from "@/public/light logo.png";
 import logoDark from "@/public/dark logo.png";
@@ -12,7 +12,7 @@ interface AboutPageProps {}
 const AboutPage: FC<AboutPageProps> = ({}) => {
   return (
     <div className=" h-full w-full">
-      <PgageBanner
+      <PageBanner
         title="About wafipix"
         description="We help you to spread your business across the world"
       />

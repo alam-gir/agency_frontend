@@ -1,12 +1,12 @@
 "use client"
 import { FC } from 'react'
-import { Button } from '../ui/button'
+import { Button } from '@nextui-org/react'
 import { useRouter } from 'next/navigation';
 
 interface RedirectButtonProps extends React.HTMLProps<HTMLButtonElement> {
   title?: string;
   redirectTo: string;
-  varient?: "default" | "secondary" | "destructive" | "outline" | "link";
+  varient?: "faded" | "flat" | "ghost" | "light" | "shadow" | "solid" | "bordered" | undefined;
 }
 
 

@@ -1,4 +1,3 @@
-"use client";
 import { FC, useCallback, useEffect, useState } from "react";
 import { UserAvatar } from "../global/userAvatar";
 import DashboardButton from "./dashboar-button";
@@ -11,7 +10,8 @@ import { usePathname } from "next/navigation";
 
 interface AuthButtonProps {}
 
-const AuthButton: FC<AuthButtonProps> = ({}) => {
+const AuthButton: FC<AuthButtonProps> =async ({}) => {
+
   const pathname = usePathname();
 
   const [isLoading, setLoading] = useState<boolean>(true);

@@ -1,12 +1,9 @@
 "use client";
 import { navigationMenu } from "@/lib/context";
 import Link from "next/link";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { ModeToggle } from "../modeToggle";
 import AuthButton from "./authButton";
-import Image from "next/image";
-import light_logo from "@/public/light logo.png";
-import dark_logo from "@/public/dark logo.png";
 import { usePathname } from "next/navigation";
 import Logo from "../global/logo";
 
@@ -30,7 +27,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={`hidden backdrop-blur-lg bg-transparent md:flex justify-center w-full h-fit sticky top-0 z-50`}
+      className={`hidden backdrop-blur-3xl bg-transparent md:flex justify-center w-full h-fit sticky top-0 z-50`}
     >
       <div className="flex w-full md:max-w-4xl lg:max-w-7xl justify-between items-center p-4 ">
         <Logo />

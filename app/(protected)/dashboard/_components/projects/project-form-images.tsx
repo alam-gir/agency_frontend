@@ -58,7 +58,7 @@ const ProjectFormImages: FC<ProjectFormImagesProps> = ({ images }) => {
       for (let image of files) {
         formData.append("files", image);
       }
-      console.log("uploading");
+      
       await upload({ id: project_id as string, images: formData });
     }
   };
@@ -131,7 +131,7 @@ const ProjectFormImages: FC<ProjectFormImagesProps> = ({ images }) => {
     uploadingCallback();
     imageDeletingCallback();
   });
-  console.log({ isError, isLoading, isSuccess, error, data, images });
+  
   return (
     <div>
       <Label className="text-sm text-primary/80">Images</Label>

@@ -25,7 +25,6 @@ export const toBdDateTime = (date: Date, options?: options) => {
       })
     : "";
 
-    console.log({datePart, timePart})
   let finalDateString = "";
   if (defaultOptions.showDate && defaultOptions.showTime)
     finalDateString = `${datePart} ${timePart}`;

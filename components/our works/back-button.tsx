@@ -12,7 +12,7 @@ const BackButton: FC<BackButtonProps> = ({}) => {
         router.back();
     }
   return (
-    <li onClick={clickHandle} className="bg-transparent max-w-fit list-none flex mx-2 cursor-pointer group hover:text-primary/60 duration-300">
+    <li onClick={clickHandle} className="text-primary/80 bg-transparent max-w-fit list-none flex mx-2 cursor-pointer group hover:text-primary/60 duration-300">
       <ChevronLeft className="text-primary/60 group-hover:text-primary/40 duration-300" />
       Back
     </li>

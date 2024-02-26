@@ -15,7 +15,7 @@ const WorkSingle: FC<WorkSingleProps> = ({}) => {
           <Navbar />
           <MobileNavbar />
         </div>
-        <div className="h-full w-full md:max-w-2xl lg:max-w-6xl m-auto flex flex-col gap-10 lg:flex-row">
+        <div className="h-full w-full md:max-w-4xl lg:max-w-7xl m-auto flex flex-col gap-10 lg:flex-row">
           <BackButton />
         </div>
         <WorkView />

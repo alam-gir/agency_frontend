@@ -5,7 +5,7 @@ import WorkDetails from "./work-details";
 import { useParams } from "next/navigation";
 import { useGetProjectQuery } from "@/redux/features/project/projectSlice";
 import EmblaCarousel from "../embla/embla-carousel";
-import { File } from "@/@types/types";
+import { File, ProjectPopulated } from "@/@types/types";
 import { FaSpinner } from "react-icons/fa";
 
 interface WorkViewProps {}
@@ -23,7 +23,9 @@ const WorkView: FC<WorkViewProps> = ({}) => {
     { skip: !params.id }
   );
 
-  //---------------------functions---------------------
+  //---------------------functions--------------------
+
+
   //---------------------callback---------------------
   const projectStateCallback = useCallback(() => {
     if (isLoading) setProjectLoading(true);
@@ -64,7 +66,7 @@ const WorkView: FC<WorkViewProps> = ({}) => {
       </div>
       {/*details  */}
       <div className="lg:w-1/2">
-        <WorkDetails />
+        <WorkDetails work={data?.data as ProjectPopulated} />
       </div>
     </div>
   );

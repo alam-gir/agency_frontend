@@ -26,7 +26,7 @@ export const projectSlice = apiSlice.injectEndpoints({
           "/project" + (filter?.category ? `?category=${filter?.category}` : "") + (filter?.search ? `&search=${filter?.search}` : ""),
       }),
       providesTags: (result, err) => {
-        console.log({ result });
+
         return result
           ? (result.data as any)?.projects?.map(({ _id }: { _id: string }) => ({
               type: "Project",
