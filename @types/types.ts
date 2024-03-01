@@ -67,6 +67,50 @@ export interface ProjectPopulated extends Project {
   author: User;
 }
 
+export interface Price extends Docs {
+  bdt: number;
+  usd: number;
+}
+
+export interface PackageOption extends Docs {
+  title?: string;
+  description?: string;
+  delivery_time?: string;
+  revision?: number | "unlimited";
+  features?: string[];
+  price?: string | Price;
+}
+
+export interface Package extends Docs {
+  basic: string | PackageOption;
+  standard: string | PackageOption;
+  premium: string | PackageOption;
+}
+
+export interface PackagePopulated extends Package {
+  basic: PackageOption;
+  standard: PackageOption;
+  premium: PackageOption;
+}
+
+export interface Service extends Docs {
+  title: string;
+  description?: string;
+  short_description?: string;
+  status: "active" | "inactive";
+  icon?: string | File;
+  packages: string | PackagePopulated;
+  category: string | Category;
+  author: string | User;   
+}
+
+export interface ServicePopulated extends Service {
+  icon: File,
+  packages: PackagePopulated,
+  category: Category,
+  author: User
+}
+
 export interface ApiResponse {
   status: string;
   data: any;

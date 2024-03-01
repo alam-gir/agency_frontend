@@ -3,11 +3,11 @@ import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import { FC } from "react";
 import demoImage from "../../public/demoImage.jpg";
-import { Service } from "@/lib/mockdata";
 import { useRouter } from "next/navigation";
+import { ServicePopulated } from "@/@types/types";
 
 interface ServiceCardProps {
-  service: Service;
+  service: ServicePopulated;
   reverse?: boolean;
 }
 
@@ -26,7 +26,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service,reverse }) => {
     <div className={`h-full w-full flex flex-col gap-6 p-4 rounded-md min-w-[18rem] flex-grow bg-gray-100 dark:bg-gray-800 md:bg-gray-50 md:dark:bg-gray-900  m-auto shadow-md md:shadow-none  hover:shadow-lg md:hover:shadow-none duration-300 ${reverse ? "md:flex-row-reverse" :"md:flex-row"}`}>
       {/* image */}
       <div className="w-full h-auto flex items-start  md:w-1/2">
-        <Image src={demoImage} alt="service" width={200} height={200} className="h-auto w-full object-cover md:object-contain rounded" />
+        <Image src={ service.icon.url || demoImage} alt="service" width={600} height={600} className="h-auto w-full object-cover md:object-contain rounded" />
       </div>
       {/* info */}
       <div className="flex flex-col gap-4 h-full w-full justify-between md:w-1/2 ">
@@ -38,7 +38,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service,reverse }) => {
         </div>
         {/* buttons */}
         <div className="flex gap-2">
-          <Button onClick={() => viewHandle(service._id)} className="w-full drop-shadow-md hover:drop-shadow-lg duration-300" variant={"flat"}>
+          <Button onClick={() => viewHandle(service._id!)} className="w-full drop-shadow-md hover:drop-shadow-lg duration-300" variant={"flat"}>
             View
           </Button>
           <Button onClick={redirectToContactUs} className="w-full drop-shadow-md hover:drop-shadow-lg duration-300" variant={"flat"}>

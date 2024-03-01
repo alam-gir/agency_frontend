@@ -1,19 +1,24 @@
-"use client"
+"use client";
+import {
+  Tabs,
+  Tab,
+  Card,
+  CardBody,
+} from "@nextui-org/react";
+
 import { FC, useCallback, useEffect, useState } from "react";
-import ServiceViewCard from "../services/service-view-card";
-import { mockServices } from "@/lib/mockdata";
-import ServiceViewActionButtons from "../services/service-view-action-buttons";
-import ServicePackageCard from "../services/service-package-card";
+import ServicePackageCardContent from "./service-package-sub-card";
+import { FaSpinner } from "react-icons/fa";
+import { ServicePopulated } from "@/@types/types";
 import { useGetServiceQuery } from "@/redux/features/service/serviceSlice";
 import { useParams } from "next/navigation";
-import { ServicePopulated } from "@/@types/types";
-import { FaSpinner } from "react-icons/fa";
 
-interface ServiceViewPageProps {
-}
+interface ServicePackageCardProps {}
 
-const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
+const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
+  const [selected, setSelected] = useState("login");
 
+  
     //--------------------------------React hooks--------------------------------
     const params = useParams();
     const [isError, setError] = useState<boolean>(false);
@@ -66,22 +71,32 @@ const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
       );
   
 
+
   return (
-    <div className="h-full w-full md:max-w-4xl lg:max-w-6xl lg:mt-10 flex flex-col md:flex-row m-auto">
-      {/* card */}
-      <div className="h-fit w-full md:w-1/2">
-        <ServiceViewCard service={service!} />
-      </div>
-      {/* action button  */}
-      <div className="h-fit w-full md:w-1/2 md:mt-4">
-        <ServiceViewActionButtons />
-        {/* package card */}
-        <div className="p-4 mt-4">
-          <ServicePackageCard />
-        </div>
-      </div>
+    <div className="flex flex-col w-full">
+      <Card className="max-w-full bg-gray-100 dark:bg-gray-800">
+        <CardBody className="overflow-hidden">
+          <Tabs
+            fullWidth
+            size="lg"
+            aria-label="Tabs form"
+            selectedKey={selected}
+            onSelectionChange={(key) => setSelected(key as string)}
+          >
+            <Tab key="Basic" title="Basic">
+              <ServicePackageCardContent />
+            </Tab>
+            <Tab key="Standard" title="Standard">
+              <ServicePackageCardContent />
+            </Tab>
+            <Tab key="Premium" title="Premium">
+              <ServicePackageCardContent />
+            </Tab>
+          </Tabs>
+        </CardBody>
+      </Card>
     </div>
   );
 };
 
-export default ServiceViewPage;
+export default ServicePackageCard;

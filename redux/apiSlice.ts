@@ -43,6 +43,7 @@ export const apiSlice = createApi({
     "Category",
     "User",
     "Project",
+    "Service"
   ],
   endpoints: (builder) => ({}),
 });
