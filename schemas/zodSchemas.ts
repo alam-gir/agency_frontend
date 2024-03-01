@@ -44,3 +44,19 @@ export const ContactFormSchema = z.object({
     .min(5, "Message must be at least 5 characters")
     .max(580, "Password must be at most 580 characters"),
 });
+
+export const BuyerSchema = z.object({
+  name: z
+    .string()
+    .min(3, "Name must be at least 3 characters")
+    .max(20, "Name must be at most 20 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z
+    .string()
+    .min(8, "Valid phone number required!")
+    .max(15, "Valid phone number required!"),
+  details: z
+    .string()
+    .min(5, "Message must be at least 5 characters")
+    .max(580, "Password must be at most 580 characters"),
+});

@@ -32,14 +32,11 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { ProjectCreateSchema } from "@/schemas/projectSchema";
 import { cn } from "@/lib/utils";
-import { mockCategories } from "@/lib/mockdata";
 import { Button } from "@/components/ui/button";
 import { FaSpinner } from "react-icons/fa";
 
 import { useCreateProjectMutation } from "@/redux/features/project/projectSlice";
 import { useGetCategoriesQuery } from "@/redux/features/category/categorySlice";
-import FormSuccess from "@/components/auth/form-success";
-import FormError from "@/components/auth/form-error";
 import { useToast } from "@/components/ui/use-toast";
 
 interface ProjectCreateModalProps {}

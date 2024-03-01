@@ -1,70 +1,68 @@
-"use client"
+"use client";
 import { FC, useCallback, useEffect, useState } from "react";
 import ServiceViewCard from "../services/service-view-card";
-import { mockServices } from "@/lib/mockdata";
 import ServiceViewActionButtons from "../services/service-view-action-buttons";
 import ServicePackageCard from "../services/service-package-card";
 import { useGetServiceQuery } from "@/redux/features/service/serviceSlice";
 import { useParams } from "next/navigation";
 import { ServicePopulated } from "@/@types/types";
 import { FaSpinner } from "react-icons/fa";
+import OrderModal from "../global/order-modal";
 
-interface ServiceViewPageProps {
-}
+interface ServiceViewPageProps {}
 
 const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
+  //--------------------------------React hooks--------------------------------
+  const params = useParams();
+  const [isError, setError] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(true);
 
-    //--------------------------------React hooks--------------------------------
-    const params = useParams();
-    const [isError, setError] = useState<boolean>(false);
-    const [isLoading, setLoading] = useState<boolean>(true);
+  const [service, setService] = useState<ServicePopulated>();
 
-    const [service, setService] = useState<ServicePopulated>();
-  
-    //--------------------------------Redux hooks--------------------------------
-    const {
-      data,
-      isError: isServicesError,
-      isLoading: isServicesLoading,
-      isSuccess,
-      error,
-    } = useGetServiceQuery({project_id: params.id as string}, {skip: !params.id});
-  
-    //--------------------------------useCallback hooks-------------------------------
-  
-    const serviceStateCallback = useCallback(() => {
-      if (isServicesError) setError(true);
-      else setError(false);
-  
-      if (isServicesLoading) setLoading(true);
-      else setLoading(false);
+  //--------------------------------Redux hooks--------------------------------
+  const {
+    data,
+    isError: isServicesError,
+    isLoading: isServicesLoading,
+    isSuccess,
+    error,
+  } = useGetServiceQuery(
+    { project_id: params.id as string },
+    { skip: !params.id }
+  );
 
-      if(data?.data){
-        setService(data?.data as ServicePopulated);
-      }
-    }, [isServicesError, isServicesLoading, data]);
-  
-    //--------------------------------useEffects hooks--------------------------------
-    useEffect(() => {
-      serviceStateCallback();
-    });
-  
-    console.log("services", service);
-  
-    //-----------------------------JSX----------------------------------
-    if (isLoading)
-      return (
-        <div className="h-full min-h-screen w-full flex justify-center pt-56 ">
-          <FaSpinner className="animate-spinner-ease-spin" />
-        </div>
-      );
-    if (isError)
-      return (
-        <div className="h-full min-h-screen w-full flex justify-center pt-56 ">
-          <p>Failed to fetch services.</p>
-        </div>
-      );
-  
+  //--------------------------------useCallback hooks-------------------------------
+
+  const serviceStateCallback = useCallback(() => {
+    if (isServicesError) setError(true);
+    else setError(false);
+
+    if (isServicesLoading) setLoading(true);
+    else setLoading(false);
+
+    if (data?.data) {
+      setService(data?.data as ServicePopulated);
+    }
+  }, [isServicesError, isServicesLoading, data]);
+
+  //--------------------------------useEffects hooks--------------------------------
+  useEffect(() => {
+    serviceStateCallback();
+  });
+
+  //-----------------------------JSX----------------------------------
+  if (isLoading)
+    return (
+      <div className="h-full min-h-screen w-full flex justify-center pt-56 ">
+        <FaSpinner className="animate-spinner-ease-spin" />
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="h-full min-h-screen w-full flex justify-center pt-56 ">
+        <p>Failed to fetch services.</p>
+      </div>
+    );
 
   return (
     <div className="h-full w-full md:max-w-4xl lg:max-w-6xl lg:mt-10 flex flex-col md:flex-row m-auto">
@@ -80,6 +78,7 @@ const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
           <ServicePackageCard />
         </div>
       </div>
+      <OrderModal />
     </div>
   );
 };

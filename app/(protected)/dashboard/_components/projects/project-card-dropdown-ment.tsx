@@ -1,33 +1,46 @@
-"use client"
-import { FC } from 'react'
+"use client";
+import { FC } from "react";
 import {
-DropdownMenu,
-DropdownMenuTrigger,
-DropdownMenuContent,
-DropdownMenuLabel,
-DropdownMenuItem,
-DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu"
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 interface ProjectOptionsProps {
-  children?: React.ReactNode,
-  editHandle?: () => void
-  deleteHandle?: () => void
+  children?: React.ReactNode;
+  editHref?: string;
+  deleteHref?: string;
 }
 
-const ProjectOptions: FC<ProjectOptionsProps> = ({children, editHandle, deleteHandle}) => {
-  return <DropdownMenu>
-    <DropdownMenuTrigger>
-        {children}
-    </DropdownMenuTrigger>
-    <DropdownMenuContent>
-        <DropdownMenuLabel className='select-none'>Project options</DropdownMenuLabel>
+const ProjectOptions: FC<ProjectOptionsProps> = ({
+  children,
+  editHref,
+  deleteHref,
+}) => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel className="select-none">
+          Project options
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={editHandle} className='cursor-pointer'>Edit</DropdownMenuItem>
-        <DropdownMenuItem onClick={deleteHandle} className='cursor-pointer'><p className='text-red-400 hover:text-red-500'>Delete</p></DropdownMenuItem>
+        <Link href={editHref || ""}>
+          <DropdownMenuItem className="cursor-pointer">Edit</DropdownMenuItem>
+        </Link>
+        <Link
+          href={deleteHref || ""}
+          className="text-red-400 hover:text-red-500"
+        >
+          <DropdownMenuItem className="cursor-pointer">Delete</DropdownMenuItem>
+        </Link>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
-    </DropdownMenuContent>
-  </DropdownMenu>
-}
-
-export default ProjectOptions
+export default ProjectOptions;

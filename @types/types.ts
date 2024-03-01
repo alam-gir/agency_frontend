@@ -78,7 +78,8 @@ export interface PackageOption extends Docs {
   delivery_time?: string;
   revision?: number | "unlimited";
   features?: string[];
-  price?: string | Price;
+  price_bdt: number;
+  price_usd: number;
 }
 
 export interface Package extends Docs {
@@ -110,6 +111,24 @@ export interface ServicePopulated extends Service {
   category: Category,
   author: User
 }
+
+export interface Buyer extends Docs {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+export interface Order extends Docs {
+  buyer:string | Buyer;
+  date: Date;
+  status: string;
+  service:string | ServicePopulated;
+  packageOption:string | PackageOption;
+  details: string;
+  completed_date: Date;
+}
+
+
 
 export interface ApiResponse {
   status: string;

@@ -5,6 +5,8 @@ import { FC } from "react";
 import demoImage from "../../public/demoImage.jpg";
 import { useRouter } from "next/navigation";
 import { ServicePopulated } from "@/@types/types";
+import RedirectButton from "../navbar/redirect-button";
+import ContactUsButton from "../global/contact-us-button";
 
 interface ServiceCardProps {
   service: ServicePopulated;
@@ -38,12 +40,8 @@ const ServiceCard: FC<ServiceCardProps> = ({ service,reverse }) => {
         </div>
         {/* buttons */}
         <div className="flex gap-2">
-          <Button onClick={() => viewHandle(service._id!)} className="w-full drop-shadow-md hover:drop-shadow-lg duration-300" variant={"flat"}>
-            View
-          </Button>
-          <Button onClick={redirectToContactUs} className="w-full drop-shadow-md hover:drop-shadow-lg duration-300" variant={"flat"}>
-            Contact us
-          </Button>
+          <RedirectButton redirectTo={`/services/${service._id}`} title="View" varient="flat"  />
+          <ContactUsButton />
         </div>
       </div>
     </div>

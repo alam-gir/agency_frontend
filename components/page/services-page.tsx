@@ -14,7 +14,7 @@ const ServicesPage: FC<ServicesPageProps> = ({}) => {
         description="Choose a service to spread your company across the universe"
       />
       <ServicesHeader />
-      <div className="p-4 h-full w-full md:max-w-3xl lg:max-w-6xl m-auto py-4 ">
+      <div className="p-4 h-full min-h-screen w-full md:max-w-3xl lg:max-w-6xl m-auto py-4 ">
         <ServiceCards />
       </div>
       <Footer isSubcriptionBox={false} />

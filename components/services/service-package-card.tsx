@@ -9,7 +9,7 @@ import {
 import { FC, useCallback, useEffect, useState } from "react";
 import ServicePackageCardContent from "./service-package-sub-card";
 import { FaSpinner } from "react-icons/fa";
-import { ServicePopulated } from "@/@types/types";
+import { PackagePopulated, ServicePopulated } from "@/@types/types";
 import { useGetServiceQuery } from "@/redux/features/service/serviceSlice";
 import { useParams } from "next/navigation";
 
@@ -24,7 +24,7 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
     const [isError, setError] = useState<boolean>(false);
     const [isLoading, setLoading] = useState<boolean>(true);
 
-    const [service, setService] = useState<ServicePopulated>();
+    const [packages, setPackages] = useState<PackagePopulated>();
   
     //--------------------------------Redux hooks--------------------------------
     const {
@@ -45,7 +45,8 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
       else setLoading(false);
 
       if(data?.data){
-        setService(data?.data as ServicePopulated);
+        const service = data?.data as ServicePopulated;
+        setPackages(service.packages);
       }
     }, [isServicesError, isServicesLoading, data]);
   
@@ -54,7 +55,7 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
       serviceStateCallback();
     });
   
-    console.log("services", service);
+    console.log("packages", packages);
   
     //-----------------------------JSX----------------------------------
     if (isLoading)
@@ -70,8 +71,6 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
         </div>
       );
   
-
-
   return (
     <div className="flex flex-col w-full">
       <Card className="max-w-full bg-gray-100 dark:bg-gray-800">
@@ -84,13 +83,13 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
             onSelectionChange={(key) => setSelected(key as string)}
           >
             <Tab key="Basic" title="Basic">
-              <ServicePackageCardContent />
+              <ServicePackageCardContent packageOption={packages?.basic!} />
             </Tab>
             <Tab key="Standard" title="Standard">
-              <ServicePackageCardContent />
+              <ServicePackageCardContent packageOption={packages?.standard!} />
             </Tab>
             <Tab key="Premium" title="Premium">
-              <ServicePackageCardContent />
+              <ServicePackageCardContent packageOption={packages?.premium!} />
             </Tab>
           </Tabs>
         </CardBody>

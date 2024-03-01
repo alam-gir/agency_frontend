@@ -1,11 +1,9 @@
-"use client";
 import { Input } from "@/components/ui/input";
 import { MoreVertical } from "lucide-react";
 import { FC } from "react";
 import ProjectOptions from "./project-card-dropdown-ment";
 import Image from "next/image";
 import { ProjectPopulated } from "@/@types/types";
-import { useRouter } from "next/navigation";
 import { toBdDateTime } from "@/lib/convert-to-bd-time";
 
 interface ProjectCardProps {
@@ -13,13 +11,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
-  //-------------------react hooks---------------------
-  const router = useRouter();
-  
-  //-------------------functions---------------------
-  const redirectToEdit = (id: string) => {
-    router.push(`projects/${id}`);
-  };
+
   return (
     <div className="w-full select-none z-0">
       <div className="w-full h-full flex bg-primary-foreground border hover:bg-primary/5 duration-300 rounded-md p-2 md:p-4">
@@ -62,7 +54,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
           </div>
         </div>
         <div className="pl-4 flex items-center justify-center">
-          <ProjectOptions editHandle={() => redirectToEdit(project?._id!)}>
+          <ProjectOptions editHref={`projects/${project?._id!}`} deleteHref="">
             <MoreVertical className="h-6 w-6 text-primary/70 hover:text-primary cursor-pointer" />
           </ProjectOptions>
         </div>
