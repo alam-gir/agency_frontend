@@ -23,7 +23,7 @@ const ContactPage: FC<ContactPageProps> = ({}) => {
             <div className="flex gap-4 text-primary/80 dark:text-primary/60 hover:text-primary">
               <Phone />
               <h3>
-                <a href="tel:01632243382">01632243382</a>
+                <a href={process.env.PHONE}>{process.env.PHONE}</a>
               </h3>
             </div>
             <div className="flex gap-4 text-primary/80 dark:text-primary/60 hover:text-primary">

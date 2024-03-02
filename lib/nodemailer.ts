@@ -25,8 +25,10 @@ export const sendEmail = async ({ to, subject, html }: ISendEmail) => {
   return info;
 };
 
-export const simpleHtmlOfVerificaitonToken = (token: string, baseUrl: string) =>
-  `<h1>Verify your email</h1>
+export const simpleHtmlOfVerificaitonToken = (
+  token: string,
+  baseUrl: string
+) => `<h1>Verify your email</h1>
     <p>Click the link below to verify your email</p>
     <a href="${baseUrl}/auth/verify-email?token=${token}">Verify Email</a>
 
