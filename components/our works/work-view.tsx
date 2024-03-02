@@ -7,6 +7,7 @@ import { useGetProjectQuery } from "@/redux/features/project/projectSlice";
 import EmblaCarousel from "../embla/embla-carousel";
 import { File, ProjectPopulated } from "@/@types/types";
 import { FaSpinner } from "react-icons/fa";
+import OrderModal from "../global/order-modal";
 
 interface WorkViewProps {}
 
@@ -68,6 +69,7 @@ const WorkView: FC<WorkViewProps> = ({}) => {
       <div className="lg:w-1/2">
         <WorkDetails work={data?.data as ProjectPopulated} />
       </div>
+      <OrderModal />
     </div>
   );
 };

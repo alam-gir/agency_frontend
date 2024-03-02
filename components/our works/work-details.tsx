@@ -1,6 +1,8 @@
 import { ProjectPopulated } from "@/@types/types";
 import { Button } from "@nextui-org/react";
+import Link from "next/link";
 import { FC } from "react";
+import ContactUsButton from "../global/contact-us-button";
 
 interface WorkDetailsProps {
   work: ProjectPopulated
@@ -22,8 +24,8 @@ const WorkDetails: FC<WorkDetailsProps> = ({work}) => {
           </p>
         </div>
         <div className="flex gap-4">
-          <Button variant="bordered" className="md:min-w-72">Order now</Button>
-          <Button variant="bordered" className="md:min-w-72">Contact us</Button>
+          <Link href={"/services"} className="md:min-w-72"><Button variant="bordered" className="md:min-w-72">Go to services</Button></Link>
+          <ContactUsButton />
         </div>
       </div>
       <div>
