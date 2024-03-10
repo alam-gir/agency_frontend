@@ -22,10 +22,10 @@ export const serviceSlice = apiSlice.injectEndpoints({
             : ["Service"];
         },
       }),
-      getService: build.query<ApiResponseSingle<ServicePopulated>, { project_id: string }>(
+      getService: build.query<ApiResponseSingle<ServicePopulated>, { service_name: string }>(
         {
-          query: ({ project_id }) => ({
-            url: `/services/${project_id}`,
+          query: ({ service_name }) => ({
+            url: `/services/${service_name}`,
           }),
           providesTags: (result, err) => {
             return result

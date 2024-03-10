@@ -46,7 +46,7 @@ const ServicePackageCardContent: FC<ServicePackageCardContentProps> = ({
       </div>
       {/* order now and contact us buttons */}
       <div className="flex flex-col gap-4">
-        <OrderNowButton package_option_id= {packageOption._id as string} />
+        <OrderNowButton package_option_id= {packageOption?._id as string} />
         <ContactUsButton />
       </div>
     </div>

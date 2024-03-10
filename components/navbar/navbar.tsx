@@ -27,7 +27,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className={`hidden backdrop-blur-3xl bg-transparent md:flex justify-center w-full h-fit sticky top-0 z-50`}
+      className={`hidden backdrop-blur-3xl bg-transparent md:flex justify-center w-full h-fit sticky top-0 z-40`}
     >
       <div className="flex w-full md:max-w-4xl lg:max-w-7xl justify-between items-center p-4 ">
         <Logo />

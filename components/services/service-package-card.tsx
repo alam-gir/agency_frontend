@@ -33,7 +33,7 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
       isLoading: isServicesLoading,
       isSuccess,
       error,
-    } = useGetServiceQuery({project_id: params.id as string}, {skip: !params.id});
+    } = useGetServiceQuery({service_name: params.name as string}, {skip: !params.name});
   
     //--------------------------------useCallback hooks-------------------------------
   
@@ -54,8 +54,7 @@ const ServicePackageCard: FC<ServicePackageCardProps> = ({}) => {
     useEffect(() => {
       serviceStateCallback();
     });
-  
-    console.log("packages", packages);
+
   
     //-----------------------------JSX----------------------------------
     if (isLoading)

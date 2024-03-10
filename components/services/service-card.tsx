@@ -40,7 +40,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service,reverse }) => {
         </div>
         {/* buttons */}
         <div className="flex gap-2">
-          <RedirectButton redirectTo={`/services/${service._id}`} title="View" varient="flat"  />
+          <RedirectButton redirectTo={`/services/${service.title}`} title="View" varient="flat"  />
           <ContactUsButton />
         </div>
       </div>

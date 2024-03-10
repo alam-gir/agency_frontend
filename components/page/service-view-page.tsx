@@ -8,6 +8,8 @@ import { useParams } from "next/navigation";
 import { ServicePopulated } from "@/@types/types";
 import { FaSpinner } from "react-icons/fa";
 import OrderModal from "../global/order-modal";
+import WorksGallery from "../services/works-gallery";
+import Footer from "../footer";
 
 interface ServiceViewPageProps {}
 
@@ -27,8 +29,8 @@ const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
     isSuccess,
     error,
   } = useGetServiceQuery(
-    { project_id: params.id as string },
-    { skip: !params.id }
+    { service_name: params.name as string },
+    { skip: !params.name }
   );
 
   //--------------------------------useCallback hooks-------------------------------
@@ -65,21 +67,25 @@ const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
     );
 
   return (
-    <div className="h-full w-full md:max-w-4xl lg:max-w-6xl lg:mt-10 flex flex-col md:flex-row m-auto">
-      {/* card */}
-      <div className="h-fit w-full md:w-1/2">
-        <ServiceViewCard service={service!} />
-      </div>
-      {/* action button  */}
-      <div className="h-fit w-full md:w-1/2 md:mt-4">
-        <ServiceViewActionButtons />
-        {/* package card */}
-        <div className="p-4 mt-4">
-          <ServicePackageCard />
+    <>
+      <div className="h-full w-full md:max-w-4xl lg:max-w-7xl lg:mt-10 flex flex-col m-auto">
+        {/* card */}
+        <div className="h-fit w-full p-4">
+          {/* <ServiceViewCard service={service!} /> */}
+          <WorksGallery />
         </div>
+        {/* action button  */}
+        <div className="h-fit w-full max-w-[60rem] m-auto md:py-10">
+          <ServiceViewActionButtons />
+          {/* package card */}
+          <div className="p-4 mt-4">
+            <ServicePackageCard />
+          </div>
+        </div>
+        <OrderModal />
       </div>
-      <OrderModal />
-    </div>
+      <Footer isSubcriptionBox={false} />
+    </>
   );
 };
 
