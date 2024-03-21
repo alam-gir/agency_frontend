@@ -34,7 +34,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service,reverse }) => {
       <div className="flex flex-col gap-4 h-full w-full justify-between md:w-1/2 ">
       {/* description */}
         <div>
-          <p className="text-primary/80 font-light w-fit py-2 md:pt-0">{service.category.title}</p>
+          {/* <p className="text-primary/80 font-light w-fit py-2 md:pt-0">{service.category.title}</p> */}
           <h1 className="uppercase text-xl font-medium py-1 tracking-wide text-primary">{service.title}</h1>
           <p className="text-primary font-light text-justify">{service.short_description}</p>
         </div>
