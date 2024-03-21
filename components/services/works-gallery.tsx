@@ -5,9 +5,11 @@ import { useSearchParams } from "next/navigation";
 import { useGetProjectsQuery } from "@/redux/features/project/projectSlice";
 import { Project } from "@/@types/types";
 
-interface WorksGalleryProps {}
+interface WorksGalleryProps {
+  category?: string | null;
+}
 
-const WorksGallery: FC<WorksGalleryProps> = ({}) => {
+const WorksGallery: FC<WorksGalleryProps> = ({category}) => {
   //-------------------react hook---------------------
   const searchParams = useSearchParams();
   const categoryParams = searchParams.get("category");
@@ -18,7 +20,7 @@ const WorksGallery: FC<WorksGalleryProps> = ({}) => {
   //-------------------redux hook---------------------
   const { data, error, isSuccess, isError, isLoading } = useGetProjectsQuery({
     filter: {
-      category: categoryParams,
+      category: categoryParams || category,
       search: search,
     },
   });
@@ -57,6 +59,7 @@ const WorksGallery: FC<WorksGalleryProps> = ({}) => {
       <WorksGalleryCard key={index} image_url={image}  />
     ))
   ) : null
+
   return (
     <div className="w-full h-full">
       <div>

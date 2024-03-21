@@ -72,7 +72,7 @@ const ServiceViewPage: FC<ServiceViewPageProps> = ({}) => {
         {/* card */}
         <div className="h-fit w-full p-4">
           {/* <ServiceViewCard service={service!} /> */}
-          <WorksGallery />
+          <WorksGallery category={service?.category?.title} />
         </div>
         {/* action button  */}
         <div className="h-fit w-full max-w-[60rem] m-auto md:py-10">
