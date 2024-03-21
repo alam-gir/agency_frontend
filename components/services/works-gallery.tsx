@@ -28,6 +28,8 @@ const WorksGallery: FC<WorksGalleryProps> = ({category}) => {
   //------------------variables-----------------------
   const projects = (data?.data as any)?.projects as Project[];
 
+  console.log({projects})
+
   //----------------------callbacks-------------------
   const projectsStateCallback = useCallback(() => {
     //setLoading
@@ -44,7 +46,7 @@ const WorksGallery: FC<WorksGalleryProps> = ({category}) => {
 
   const images = projects?.reduce(
     (acc, project) => {
-      if ((project?.category as any)[0].title === "Logo Design") {
+      if ((project?.category as any)[0].title === category) {
         for (let image of project.images) {
           const imageUrl = (image as any)?.url;
           acc.push(imageUrl as string);
